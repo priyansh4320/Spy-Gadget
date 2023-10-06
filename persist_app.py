@@ -169,7 +169,7 @@ def extract_para(ip_url):
   para = soup.findAll(attrs={'p',"h1"})
   return para
 ## ddefine LLMs pipelines------------------------------------------------------------------------
-'''
+
 @st.cache_resource
 def name_extract(text):
     name_pipe = pipeline("text2text-generation", model="Priyansh4320/name_extract_model")
@@ -182,7 +182,7 @@ def getinfo(text):
     info_pipe = pipeline("text-generation", model="bigscience/bloomz-1b7")
     info_out = info_pipe(text, max_length=200)[0]['generated_text']
     return info_out
-'''
+
 ##  app--------------------------------------------------------
 
 st.set_page_config(layout="wide")
@@ -226,7 +226,7 @@ if scrap_btn:
     df =  pd.DataFrame(columns=["name","image","source_links","scraped_data"])
     for i,file in enumerate(list(uploaded_data_files)):
         temp = pd.read_csv(file)
-        urls = [x for x in  temp['Source URL']]
+        urls = [x for x in  temp['Source URL'][:15]]
         df['source_links'][i]=urls
         urls = [extract_para(str(x)) for x in urls]
         df["scraped_data"][i]=urls   
