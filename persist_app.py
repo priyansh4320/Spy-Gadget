@@ -78,12 +78,16 @@ def face_extraction(uploaded_video):
     pass
 ## define pimeyes----------------------------------------------------------------------------------
 def pimeye():
-    options = Options() 
-    options.add_argument("--headless=new")
-    options.add_argument('--disable-gpu')
+    def installff():
+        os.system('sbase install geckodriver')
+        os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
-    driver = webdriver.Chrome(options=options)
-    
+    _ = installff()
+    from selenium import webdriver
+    from selenium.webdriver import FirefoxOptions
+    opts = FirefoxOptions()
+    opts.add_argument("--headless")
+    browser = webdriver.Firefox(options=opts)
     # Open the website
     driver.get("https://pimeyes.com/en/login")  # Replace with the URL of the website you want to login to
 
