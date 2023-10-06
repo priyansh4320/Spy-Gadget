@@ -94,7 +94,7 @@ safetensors==0.3.2
 scikit-learn==1.3.0
 scipy==1.11.1
 selenium==4.13.0
-seleniumbase
+seleniumbase==4.19.0
 sentence-transformers==2.2.2
 sentencepiece==0.1.99
 six==1.16.0
