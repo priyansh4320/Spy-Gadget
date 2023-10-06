@@ -15,6 +15,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException , NoSuchWindowException , WebDriverException
+from selenium.webdriver.chrome.options import Options
 
 import base64
 from io import BytesIO
@@ -77,8 +78,12 @@ def face_extraction(uploaded_video):
     pass
 ## define pimeyes----------------------------------------------------------------------------------
 def pimeye():
-    driver = webdriver.Chrome()  # Change to webdriver.Firefox() for Firefox
+    options = Options() 
+    options.add_argument("--headless=new")
+    options.add_argument('--disable-gpu')
 
+    driver = webdriver.Chrome(options=options)
+    
     # Open the website
     driver.get("https://pimeyes.com/en/login")  # Replace with the URL of the website you want to login to
 
