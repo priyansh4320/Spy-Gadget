@@ -57,6 +57,7 @@ nltk==3.8.1
 numpy==1.23.5
 oauthlib==3.2.2
 opencv-python==4.8.1.78
+opencv-python-headless
 openpyxl==3.1.2
 opt-einsum==3.3.0
 outcome==1.2.0
