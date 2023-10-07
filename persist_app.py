@@ -87,7 +87,7 @@ def pimeye():
     from selenium.webdriver import FirefoxOptions
     opts = FirefoxOptions()
     opts.add_argument("--headless")
-    browser = webdriver.Firefox(options=opts)
+    driver = webdriver.Firefox(options=opts)
     # Open the website
     driver.get("https://pimeyes.com/en/login")  # Replace with the URL of the website you want to login to
 
