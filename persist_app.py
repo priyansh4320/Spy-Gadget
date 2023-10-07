@@ -115,6 +115,9 @@ def pimeye():
 
 
     #upload faces
+    WebDriverWait(driver,20).until(
+        Ec.visibility_of_element_located((By.CLASS_NAME,"understand"))
+    )
     driver.find_element(By.CLASS_NAME,"understand").click()
     driver.find_element(By.CLASS_NAME,"upload").click()
     #time.sleep(30)
