@@ -84,8 +84,8 @@ def pimeye():
 
     _ = installff()
     from selenium import webdriver
-    from selenium.webdriver import FirefoxOptions
-    opts = FirefoxOptions()
+    from selenium.webdriver import  ChromeOptions
+    opts = ChromeOptions()
     opts.add_argument("--headless")
     driver = webdriver.Chrome(options=opts)
     # Open the website
