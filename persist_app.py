@@ -16,6 +16,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException , NoSuchWindowException , WebDriverException
 from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
+from selenium.webdriver import FirefoxOptions
 
 import base64
 from io import BytesIO
@@ -24,9 +26,6 @@ import requests
 from bs4 import BeautifulSoup 
 
 import pandas as pd
-
-##-------------------------------------------
-
 
 ## define face extraction--------------------------------------------------------------------------
 
@@ -86,11 +85,9 @@ def pimeye():
         os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
     _ = installff()
-    from selenium import webdriver
-    from selenium.webdriver import  ChromeOptions
-    opts = ChromeOptions()
+    opts = FirefoxOptions()
     opts.add_argument("--headless")
-    driver = webdriver.Chrome(options=opts)
+    driver = webdriver.Firefox(options=opts)
     # Open the website
     driver.get("https://pimeyes.com/en/login")  # Replace with the URL of the website you want to login to
 
@@ -224,9 +221,9 @@ if extract_face_btn:
             img_b64 = base64.b64encode(img_bytes).decode()
             href = f'<a href="data:file/jpg;base64,{img_b64}" download="image{idx + 1}.jpg">Download Image {idx + 1}</a>'
             dlink = st.markdown(href, unsafe_allow_html=True)
-            dlinks.append(f'data:file/jpg;base64,{img_b64}')
-        st.write(dlinks)
+            dlinks.append(dlink)
         time.sleep(5)
+        pimeye()
         
         #scrape and save the data
 scrap_form = st.form(key="scrapping")
