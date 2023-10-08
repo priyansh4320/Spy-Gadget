@@ -32,8 +32,19 @@ def rev_search(img_url):
 
     response = requests.get(url, headers=headers, params=querystring)
 
-    result = response.json()
-    return result
+    if response.status_code == 200:
+        try:
+            result = response.json()
+            return result
+        except requests.exceptions.JSONDecodeError:
+            print("Failed to decode JSON. Response content:")
+            print(response.content)
+            return None
+    else:
+        print("Error:", response.status_code)
+        print("Response content:")
+        print(response.content)
+        return None
 
 ## define face extraction--------------------------------------------------------------------------
 
