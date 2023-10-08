@@ -41,9 +41,9 @@ def rev_search(img_url):
             print(response.content)
             return None
     else:
-        print("Error:", response.status_code)
-        print("Response content:")
-        print(response.content)
+        st.write("Error:", response.status_code)
+        st.write("Response content:")
+        st.write(response.content)
         return None
 
 ## define face extraction--------------------------------------------------------------------------
