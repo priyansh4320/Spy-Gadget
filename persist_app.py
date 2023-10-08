@@ -16,8 +16,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException , NoSuchWindowException , WebDriverException
 from selenium.webdriver.chrome.options import Options
-from selenium import webdriver
-from selenium.webdriver import FirefoxOptions
 
 import base64
 from io import BytesIO
@@ -88,9 +86,11 @@ def pimeye():
         os.system('ln -s /home/appuser/venv/lib/python3.7/site-packages/seleniumbase/drivers/geckodriver /home/appuser/venv/bin/geckodriver')
 
     _ = installff()
-    opts = FirefoxOptions()
+    from selenium import webdriver
+    from selenium.webdriver import  ChromeOptions
+    opts = ChromeOptions()
     opts.add_argument("--headless")
-    driver = webdriver.Firefox(options=opts)
+    driver = webdriver.Chrome(options=opts)
     # Open the website
     driver.get("https://pimeyes.com/en/login")  # Replace with the URL of the website you want to login to
 
