@@ -135,8 +135,10 @@ if extract_face_btn:
             img_b64 = base64.b64encode(img_bytes).decode()
             href = f'<a href="data:file/jpg;base64,{img_b64}" download="image{idx + 1}.jpg">Download Image {idx + 1}</a>'
             dlink = st.markdown(href, unsafe_allow_html=True)
-            dlinks.append(dlink)
+            dlinks.append(f'data:file/jpg;base64,{img_b64}')
+        st.write(dlinks)
         time.sleep(5)
+        
         
         #scrape and save the data
 scrap_form = st.form(key="scrapping")
