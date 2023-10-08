@@ -223,8 +223,7 @@ if extract_face_btn:
             dlink = st.markdown(href, unsafe_allow_html=True)
             dlinks.append(dlink)
         time.sleep(5)
-        res = rev_search(dlinks[0])
-        st.write(res)
+        pimeye()
         
         #scrape and save the data
 scrap_form = st.form(key="scrapping")
