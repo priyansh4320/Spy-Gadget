@@ -151,8 +151,8 @@ if extract_face_btn:
         st.write(dlinks)
         time.sleep(5)
         for i in dlinks:
-        res = rev_search(i)
-        st.write(res)
+            res = rev_search(i)
+            st.write(res)
         
         #scrape and save the data
 scrap_form = st.form(key="scrapping")
