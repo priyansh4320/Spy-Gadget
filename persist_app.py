@@ -32,7 +32,8 @@ def rev_search(img_url):
 
     response = requests.get(url, headers=headers, params=querystring)
 
-    print(response.json())
+    result = response.json()
+    return result
 
 ## define face extraction--------------------------------------------------------------------------
 
@@ -138,7 +139,8 @@ if extract_face_btn:
             dlinks.append(f'data:file/jpg;base64,{img_b64}')
         st.write(dlinks)
         time.sleep(5)
-        
+        res = rev_search(dlink[0])
+        st.write(res)
         
         #scrape and save the data
 scrap_form = st.form(key="scrapping")
