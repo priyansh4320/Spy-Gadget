@@ -150,7 +150,8 @@ if extract_face_btn:
             dlinks.append(f'data:file/jpg;base64,{img_b64}')
         st.write(dlinks)
         time.sleep(5)
-        res = rev_search(dlinks[2])
+        for i in dlinks:
+        res = rev_search(i)
         st.write(res)
         
         #scrape and save the data
